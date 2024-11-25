@@ -7,8 +7,9 @@ from typing_extensions import Annotated
 import pandas as pd
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
+from constants import DATA_CLASSIFICATION
 from utils.preprocess import ColumnsDropper, DataFrameCaster, NADropper
-from zenml import step
+from zenml import step, ArtifactConfig
 
 
 @step
@@ -19,9 +20,9 @@ def train_data_preprocessor(
     normalize: Optional[bool] = None,
     drop_columns: Optional[List[str]] = None,
 ) -> Tuple[
-    Annotated[pd.DataFrame, "dataset_trn"],
-    Annotated[pd.DataFrame, "dataset_tst"],
-    Annotated[Pipeline, "preprocess_pipeline"],
+    Annotated[pd.DataFrame, ArtifactConfig(name="dataset_trn", tags=[DATA_CLASSIFICATION])],
+    Annotated[pd.DataFrame, ArtifactConfig(name="dataset_tst", tags=[DATA_CLASSIFICATION])],
+    Annotated[Pipeline, ArtifactConfig(name="preprocess_pipeline", tags=[DATA_CLASSIFICATION])],
 ]:
     """Data preprocessor step.
 

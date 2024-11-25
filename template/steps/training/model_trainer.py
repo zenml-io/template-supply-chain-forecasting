@@ -1,6 +1,7 @@
 # {% include 'template/license_header' %}
 
 from typing_extensions import Annotated
+from constants import DATA_CLASSIFICATION
 
 import mlflow
 import pandas as pd
@@ -30,7 +31,7 @@ def model_trainer(
     model: ClassifierMixin,
     target: str,
     name: str,
-) -> Annotated[ClassifierMixin, ArtifactConfig(name="model", is_model_artifact=True)]:
+) -> Annotated[ClassifierMixin, ArtifactConfig(name="model", tags=[DATA_CLASSIFICATION], is_model_artifact=True)]:
     """Configure and train a model on the training dataset.
 
     This is an example of a model training step that takes in a dataset artifact

@@ -17,12 +17,54 @@
 project_name:
     type: str
     help: Short name for your project
-    default: ZenML E2E project
+    default: Supply Chain Forecasting
 version:
     type: str
     help: |
         Version of your project
     default: "0.0.1"
+audience:
+    type: str
+    help: >-
+        The audience for your project
+    multiselect: true
+    choices:
+        - Supply Chain Managers
+        - Procurement Teams
+        - Production Planners
+        - Manufacturing Operations
+    default: Supply Chain Managers
+use_case:
+    type: str
+    help: >-
+        The primary use cases for your project
+    multiselect: true
+    choices:
+        - Predicts demand for critical components up to 12 months in advance
+        - Forecasts lead times for specialized materials and parts
+        - Optimizes inventory levels for high-value components
+        - Identifies potential supply chain bottlenecks
+        - Supports just-in-time manufacturing practices
+        - Helps reduce working capital tied up in inventory
+project_risk:
+    type: str
+    help: >-
+        The AI Act defined risk level of your project
+    choices:
+        Unacceptable Risk: unacceptable
+        High Risk: high
+        Limited Risk: limited
+        Minimal or No Risk: minimal
+    default: minimal
+data_privacy_level:
+    type: str
+    help: >-
+        The data privacy level of your project
+    choices:
+        C1: c1
+        C2: c2
+        C3: c3
+    default: c1
 open_source_license:
     type: str
     help: >-
@@ -34,7 +76,7 @@ open_source_license:
         ISC license: isc
         GNU General Public License v3: gpl3
         Not open source: none
-    default: apache
+    default: none
 full_name:
     type: str
     help: >-
@@ -50,7 +92,7 @@ email:
 product_name:
     type: str
     help: The technical name of the data product you are building
-    default: e2e_use_case
+    default: supply_chain_forecasting
 target_environment:
     type: str
     help: "The target environment for your project"

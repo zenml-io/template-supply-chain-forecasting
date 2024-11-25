@@ -6,15 +6,17 @@ from typing_extensions import Annotated
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from zenml import step
+from zenml import step, ArtifactConfig
+
+from constants import DATA_CLASSIFICATION
 
 
 @step
 def train_data_splitter(
     dataset: pd.DataFrame, test_size: float = 0.2
 ) -> Tuple[
-    Annotated[pd.DataFrame, "raw_dataset_trn"],
-    Annotated[pd.DataFrame, "raw_dataset_tst"],
+    Annotated[pd.DataFrame, "raw_dataset_trn", ArtifactConfig(name="raw_dataset_trn", tags=[DATA_CLASSIFICATION])],
+    Annotated[pd.DataFrame, "raw_dataset_tst", ArtifactConfig(name="raw_dataset_trn", tags=[DATA_CLASSIFICATION])],
 ]:
     """Dataset splitter step.
 

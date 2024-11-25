@@ -6,8 +6,9 @@ from typing import Tuple
 import pandas as pd
 from sklearn.datasets import load_breast_cancer
 from typing_extensions import Annotated
-from zenml import step
+from zenml import step, ArtifactConfig
 from zenml.logger import get_logger
+from constants import DATA_CLASSIFICATION
 
 logger = get_logger(__name__)
 
@@ -16,9 +17,9 @@ logger = get_logger(__name__)
 def data_loader(
     random_state: int, is_inference: bool = False
 ) -> Tuple[
-    Annotated[pd.DataFrame, "dataset"],
-    Annotated[str, "target"],
-    Annotated[int, "random_state"],
+    Annotated[pd.DataFrame, ArtifactConfig(name="dataset", tags=[DATA_CLASSIFICATION])],
+    Annotated[str, ArtifactConfig(name="target", tags=[DATA_CLASSIFICATION])],
+    Annotated[int, ArtifactConfig(name="random_state", tags=[DATA_CLASSIFICATION])],
 ]:
     """Dataset reader step.
 

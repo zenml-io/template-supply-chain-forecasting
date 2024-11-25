@@ -5,9 +5,11 @@ from typing import Optional
 from typing_extensions import Annotated
 
 import pandas as pd
-from zenml import get_step_context, step
+from zenml import get_step_context, step, ArtifactConfig
 from zenml.integrations.mlflow.services.mlflow_deployment import MLFlowDeploymentService
 from zenml.logger import get_logger
+
+from constants import DATA_CLASSIFICATION
 
 logger = get_logger(__name__)
 
@@ -15,7 +17,7 @@ logger = get_logger(__name__)
 @step
 def inference_predict(
     dataset_inf: pd.DataFrame,
-) -> Annotated[pd.Series, "predictions"]:
+) -> Annotated[pd.Series, ArtifactConfig(name="predictions", tags=[DATA_CLASSIFICATION])]:
     """Predictions step.
 
     This is an example of a predictions step that takes the data in and returns

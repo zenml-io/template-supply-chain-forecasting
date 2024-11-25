@@ -4,7 +4,7 @@ This is a comprehensive supervised ML project built with the
 ZenML framework and its integration. The project trains one or more
 scikit-learn classification models to make predictions on the tabular
 classification datasets provided by the scikit-learn library. The project was
-generated from the [E2E Batch ZenML project template](https://github.com/zenml-io/template-e2e-batch)
+generated from the [Supply Chain Forecasting ZenML project template](https://github.com/zenml-io/template-supply-chain-forecasting)
 with the following properties:
 - Project name: {{project_name}}
 - Technical Name: {{product_name}}

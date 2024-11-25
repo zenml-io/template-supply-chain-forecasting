@@ -33,10 +33,12 @@ from zenml.artifacts.external_artifact import ExternalArtifact
 from utils import get_model_from_config
 {%- endif %}
 
+from constants import DATA_CLASSIFICATION
+
 logger = get_logger(__name__)
 
 
-@pipeline(on_failure=notify_on_failure)
+@pipeline(on_failure=notify_on_failure, tags=[DATA_CLASSIFICATION])
 def {{product_name}}_training(
 {%- if hyperparameters_tuning %}
     model_search_space: Dict[str,Any],

@@ -15,8 +15,8 @@ from constants import DATA_CLASSIFICATION
 def train_data_splitter(
     dataset: pd.DataFrame, test_size: float = 0.2
 ) -> Tuple[
-    Annotated[pd.DataFrame, "raw_dataset_trn", ArtifactConfig(name="raw_dataset_trn", tags=[DATA_CLASSIFICATION])],
-    Annotated[pd.DataFrame, "raw_dataset_tst", ArtifactConfig(name="raw_dataset_trn", tags=[DATA_CLASSIFICATION])],
+    Annotated[pd.DataFrame, ArtifactConfig(name="raw_dataset_trn", tags=[DATA_CLASSIFICATION])],
+    Annotated[pd.DataFrame, ArtifactConfig(name="raw_dataset_trn", tags=[DATA_CLASSIFICATION])],
 ]:
     """Dataset splitter step.
 

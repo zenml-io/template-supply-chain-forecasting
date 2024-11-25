@@ -15,10 +15,12 @@ from zenml.integrations.evidently.metrics import EvidentlyMetricConfig
 from zenml.integrations.evidently.steps import evidently_report_step
 from zenml.logger import get_logger
 
+from constants import DATA_CLASSIFICATION
+
 logger = get_logger(__name__)
 
 
-@pipeline(on_failure=notify_on_failure)
+@pipeline(on_failure=notify_on_failure, tags=[DATA_CLASSIFICATION])
 def {{product_name}}_batch_inference():
     """
     Model batch inference pipeline.

@@ -39,35 +39,41 @@ model:
     The model predicts demand, lead times, and inventory requirements for critical components
     and raw materials, helping maintain optimal production schedules while minimizing inventory costs.
 
-  audience: {{ audience }}
-  use_cases: {{ use_cases }}
+  audience: |
+{%- for audience in audience %}
+    - {{ audience }}
+{%- endfor %}
+  use_cases: |
+{%- for use_case in use_cases %}
+    - {{ use_case }}
+{%- endfor %}
 
   ethics: |
 {%- if project_risk == 'unacceptable' %}
     Unacceptable Risk:
-      Manipulates behavior subliminally, exploiting vulnerable individuals.
-      Enables real-time biometric surveillance in public spaces without legal justification.
-      Facilitates social scoring systems leading to unjust or discriminatory treatment.
+    - Manipulates behavior subliminally, exploiting vulnerable individuals.
+    - Enables real-time biometric surveillance in public spaces without legal justification.
+    - Facilitates social scoring systems leading to unjust or discriminatory treatment.
 {%- elif project_risk == 'high' %}
     High Risk:
-      Processes sensitive personal data affecting health, safety, or fundamental rights.
-      Used in critical sectors like law enforcement, employment, or essential services.
-      Requires stringent risk mitigation, human oversight, and data transparency.
+    - Processes sensitive personal data affecting health, safety, or fundamental rights.
+    - Used in critical sectors like law enforcement, employment, or essential services.
+    - Requires stringent risk mitigation, human oversight, and data transparency.
 {%- elif project_risk == 'limited' %}
     Limited Risk:
-      Processes personal data with moderate implications for user rights.
-      Includes systems like chatbots or AI-generated content requiring clear labeling.
-      Transparency obligations ensure users are informed of AI involvement.
+    - Processes personal data with moderate implications for user rights.
+    - Includes systems like chatbots or AI-generated content requiring clear labeling.
+    - Transparency obligations ensure users are informed of AI involvement.
 {%- else %}
     Minimal or No Risk:
-      Operates with negligible impact on user safety or privacy.
-      Applications include AI-enhanced video games or spam filtering tools.
-      Requires no regulatory compliance under the AI Act framework.
+    - Operates with negligible impact on user safety or privacy.
+    - Applications include AI-enhanced video games or spam filtering tools.
+    - Requires no regulatory compliance under the AI Act framework.
 {%- endif %}
   tags:
-    - supply chain
-    - {{ data_privacy_level }}
-    - {{ project_risk }} risk
+  - supply chain
+  - {{ data_privacy_level }}
+  - {{ project_risk }} risk
 
 # pipeline level extra configurations
 extra:

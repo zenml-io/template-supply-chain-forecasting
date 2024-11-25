@@ -47,7 +47,10 @@ model:
 {%- for use_case in use_cases %}
     - {{ use_case }}
 {%- endfor %}
-
+  limitations: |
+    - Requires minimum 3 years of historical data for optimal performance
+    - May need recalibration during major market disruptions
+    - Limited accuracy for newly introduced components
   ethics: |
 {%- if project_risk == 'unacceptable' %}
     Unacceptable Risk:

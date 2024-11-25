@@ -39,21 +39,9 @@ def inference_predict(
     ### ADD YOUR OWN CODE HERE - THIS IS JUST AN EXAMPLE ###
     model = get_step_context().model
 
-    # get predictor
-    predictor_service: Optional[
-        MLFlowDeploymentService
-    ] = model.load_artifact("mlflow_deployment")
-    if predictor_service is not None:
-        # run prediction from service
-        predictions = predictor_service.predict(request=dataset_inf)
-    else:
-        logger.warning(
-            "Predicting from loaded model instead of deployment service "
-            "as the orchestrator is not local."
-        )
-        # run prediction from memory
-        predictor = model.load_artifact("model")
-        predictions = predictor.predict(dataset_inf)
+    # run prediction from memory
+    predictor = model.load_artifact("model")
+    predictions = predictor.predict(dataset_inf)
 
     predictions = pd.Series(predictions, name="predicted")
     ### YOUR CODE ENDS HERE ###

@@ -34,7 +34,7 @@ audience:
         - Production Planners
         - Manufacturing Operations
     default: Supply Chain Managers
-use_case:
+use_cases:
     type: str
     help: >-
         The primary use cases for your project
@@ -75,24 +75,24 @@ open_source_license:
         BSD license: bsd
         ISC license: isc
         GNU General Public License v3: gpl3
-        Not open source: none
-    default: none
+        Proprietary: proprietary
+    default: proprietary
 full_name:
     type: str
     help: >-
         The name of the person/entity holding the copyright
     default: ZenML GmbH
-    when: "{{ open_source_license != 'none' }}"
+    when: "{{ open_source_license != 'proprietary' }}"
 email:
     type: str
     help: >-
         The email of the person/entity holding the copyright
     default: info@zenml.io
-    when: "{{ open_source_license != 'none' }}"
+    when: "{{ open_source_license != 'proprietary' }}"
 product_name:
     type: str
     help: The technical name of the data product you are building
-    default: supply_chain_forecasting
+    default: supply_chain_forecast
 target_environment:
     type: str
     help: "The target environment for your project"

@@ -67,7 +67,7 @@ model:
   tags:
     - supply chain
     - {{ data_privacy_level }}
-    - {{ project_risk }}
+    - {{ project_risk }} risk
 
 # pipeline level extra configurations
 extra:

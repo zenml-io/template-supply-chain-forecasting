@@ -1,3 +1,3 @@
 # {% include 'template/license_header' %}
 
-DATA_CLASSIFICATION = "c2"
+DATA_CLASSIFICATION = "{{ data_privacy_level }}"

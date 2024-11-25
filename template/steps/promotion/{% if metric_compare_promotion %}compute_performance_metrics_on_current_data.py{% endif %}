@@ -15,7 +15,7 @@ logger = get_logger(__name__)
 def compute_performance_metrics_on_current_data(
     dataset_tst: pd.DataFrame,
     target_env: str,
-) -> Tuple[Annotated[float, "latest_metric", tags=["c1"]],Annotated[float, "current_metric", tags=["c1"]]]:
+) -> Tuple[Annotated[float, "latest_metric", tags=["{{ data_privacy_level }}"]],Annotated[float, "current_metric", tags=["{{ data_privacy_level }}"]]]:
     """Get metrics for comparison during promotion on fresh dataset.
 
     This is an example of a metrics calculation step. It computes metric 

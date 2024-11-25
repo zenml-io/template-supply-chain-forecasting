@@ -158,7 +158,7 @@ The project loosely follows [the recommended ZenML project structure](https://do
 │   ├── inference_config.yaml # the configuration of the batch inference pipeline
 │   └── train_config.yaml     # the configuration of the training pipeline
 ├── pipelines                 # `zenml.pipeline` implementations
-│   ├── batch_inference.py    # [CD] Batch Inference pipeline
+│   ├── inference.py    # [CD] Batch Inference pipeline
 │   ├── deployment.py         # [CD] Deployment pipeline
 │   └── training.py           # [CT] Training Pipeline
 ├── steps                     # logically grouped `zenml.steps` implementations

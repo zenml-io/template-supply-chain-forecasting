@@ -92,7 +92,7 @@ email:
 product_name:
     type: str
     help: The technical name of the data product you are building
-    default: supply_chain_forecasting
+    default: supply_chain_fcast
 target_environment:
     type: str
     help: "The target environment for your project"

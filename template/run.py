@@ -8,7 +8,7 @@ from typing import Optional
 from zenml.client import Client
 from zenml.logger import get_logger
 
-from pipelines import {{product_name}}_batch_inference, {{product_name}}_training
+from pipelines import {{product_name}}_inference, {{product_name}}_training
 
 logger = get_logger(__name__)
 
@@ -177,8 +177,8 @@ def main(
     )
     pipeline_args[
         "run_name"
-    ] = f"{{product_name}}_batch_inference_run_{dt.now().strftime('%Y_%m_%d_%H_%M_%S')}"
-    {{product_name}}_batch_inference.with_options(**pipeline_args)(**run_args_inference)
+    ] = f"{{product_name}}_inference_run_{dt.now().strftime('%Y_%m_%d_%H_%M_%S')}"
+    {{product_name}}_inference.with_options(**pipeline_args)(**run_args_inference)
 
 
 

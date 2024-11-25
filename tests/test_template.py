@@ -96,7 +96,7 @@ def generate_and_run_project(
             ) from e
 
         # check the pipeline run is successful
-        for pipeline_suffix in ["_training", "_batch_inference"]:
+        for pipeline_suffix in ["_training", "_inference"]:
             pipeline = Client().get_pipeline(product_name + pipeline_suffix)
             assert pipeline
             runs = pipeline.runs

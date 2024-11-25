@@ -265,7 +265,7 @@ model:
 ```
 
 <p align="center">
-  <img height=900 src="assets/06_batch_inference.png">
+  <img height=900 src="assets/06_inference.png">
 </p>
 
 ### [Continuous Deployment] Batch Inference: ETL Steps

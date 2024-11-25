@@ -21,7 +21,7 @@ logger = get_logger(__name__)
 
 
 @pipeline(on_failure=notify_on_failure, tags=[DATA_CLASSIFICATION])
-def {{product_name}}_batch_inference():
+def {{product_name}}_inference():
     """
     Model batch inference pipeline.
 

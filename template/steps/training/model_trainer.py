@@ -25,7 +25,7 @@ if not experiment_tracker or not isinstance(
     )
 
 
-@step(experiment_tracker=experiment_tracker.name)
+@step(experiment_tracker=experiment_tracker.name, enable_cache=False)
 def model_trainer(
     dataset_trn: pd.DataFrame,
     model: ClassifierMixin,

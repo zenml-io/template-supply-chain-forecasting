@@ -68,6 +68,7 @@ def model_trainer(
     # parameters and train it on the training set.
     logger.info(f"Training model {model}...")
     mlflow.sklearn.autolog()
+
     model.fit(
         dataset_trn.drop(columns=[target]),
         dataset_trn[target],
